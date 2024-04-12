@@ -11,17 +11,15 @@ session_start();
 require_once('../config.php');
 require_once('../vendor/autoload.php');
 
-$bd = new Database();
-$clientes = $bd->select("SELECT * FROM CLIENTES");
-echo '<pre>';
-print_r($clientes);
+// vamos criar um objeto para ligar a base de dados
+$db = new Database();
+/*$clientes = $db->select("SELECT * FROM CLIENTES");
+echo "<pre>";
+echo $clientes[0]->nome . "<br>";
+echo $clientes[2]->nome;*/
 
-
-
-
-
-
-
+$clientes = $db->select("SELECT * FROM CLIENTES");
+var_dump($clientes);
 //carregar o config
 //carregar classes
 //carregar o sistema de rotas, este sistema é que vaidicidir o que é para se fazer
