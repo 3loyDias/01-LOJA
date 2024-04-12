@@ -10,6 +10,7 @@ session_start();
 //e eu estou a ir buscar o config.php,ao diretórioanterior ../
 require_once('../config.php');
 require_once('../vendor/autoload.php');
+require_once('../core/rotas.php');
 
 // vamos criar um objeto para ligar a base de dados
 $db = new Database();
@@ -24,5 +25,5 @@ var_dump($clientes);
 //carregar classes
 //carregar o sistema de rotas, este sistema é que vaidicidir o que é para se fazer
 //se é para mostrar loja
-//carrinho
+//carrinho  
 //<backoffice class="
