@@ -1,6 +1,7 @@
 <?php
 
 namespace core\controllers;
+use core\classes\functions;
 
 class Main
 {
@@ -8,6 +9,18 @@ class Main
     {
         $clientes = ["Jaoa Mascarenhas","Figueirita Malmequer", "Cristi Vai Dai", ];
         
+        $dados = [
+            'titulo' => 'Este e o titulo da pagina',
+            'clientes' => $clientes,
+        ]; // Como vamos passar agora isto para o interior dos nossos layouts
+
+        functions::
+        Layout([
+            'layouts/html_header',
+            'pagina_inicial',
+            'layouts/html_footer',
+        ], $dados);
+
     }
 
     public function loja()
