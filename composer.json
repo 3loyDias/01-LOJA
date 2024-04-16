@@ -6,7 +6,10 @@
         "psr-4": {
             "Ivanzhernovei124\\01Loja\\": "src/",
             "core\\": "core/"
-        }
+        },
+        "files": [
+            "config.php"
+        ]
     },
     "authors": [
         {

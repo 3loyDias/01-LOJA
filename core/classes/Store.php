@@ -1,11 +1,11 @@
 <?php
 namespace core\classes;
 use Exception;
-class Functions
+class Store
 {
    //====================================================================================================
       // Chamamento do nosso layout
-      // Static function poque nao quero fazer instanciacao da class functions
+      // Static function poque nao quero fazer instanciacao da class 
       // quero fazer executar o metodo dela automaticamente
       //====================================================================================================
    public static function Layout($estructuras, $dados = null )
@@ -31,5 +31,12 @@ class Functions
       include("../core/views/$estrutura.php"); // como vou usar extensoes php
      }
       
+   }
+
+   public static function clienteLogado()
+   {
+      //Verifica se temos um cliente logado / em sessao
+      // Se existir um cliene na sessao vai devolver true
+      return isset($_SESSION['cliente']);
    }
 }

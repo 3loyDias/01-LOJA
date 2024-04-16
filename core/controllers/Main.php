@@ -1,7 +1,7 @@
 <?php
 
 namespace core\controllers;
-use core\classes\functions;
+use core\classes\Store;
 
 class Main
 {
@@ -14,7 +14,7 @@ class Main
             'clientes' => $clientes,
         ]; // Como vamos passar agora isto para o interior dos nossos layouts
 
-        functions::
+        Store::
         Layout([
             'layouts/html_header',
             'pagina_inicial',
