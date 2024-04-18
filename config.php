@@ -1,5 +1,5 @@
 <?php
-define('APP_NAME', 'My App');
+define('APP_NAME', 'Loja PHP');
 define('APP_VERSION','V1.0.0');
 
 // MYSQL - constantes para ligacao BD

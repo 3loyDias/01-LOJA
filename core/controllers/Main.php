@@ -5,27 +5,48 @@ use core\classes\Store;
 
 class Main
 {
+    //================================= Index =================================
     public function index()
     {
-        $clientes = ["Jaoa Mascarenhas","Figueirita Malmequer", "Cristi Vai Dai", ];
-        
-        $dados = [
-            'titulo' => 'Este e o titulo da pagina',
-            'clientes' => $clientes,
-        ]; // Como vamos passar agora isto para o interior dos nossos layouts
 
+        //apresenta a pagina inicial
         Store::
         Layout([
             'layouts/html_header',
-            'pagina_inicial',
+            'layouts/header',
+            'inicio',
+            'layouts/footer',
             'layouts/html_footer',
-        ], $dados);
+        ]);
 
     }
 
+    //================================= Loja =================================
     public function loja()
     {
-        echo "Estou na loja";
+        //apresenta a pagina da loja
+        Store::
+        Layout([
+            'layouts/html_header',
+            'layouts/header',
+            'loja',
+            'layouts/footer',
+            'layouts/html_footer',
+        ]);
+        
+    }
+    //================================= Carrinho =================================
+    public function carrinho()
+    {
+        //apresenta a pagina do carrinho
+        Store::
+        Layout([
+            'layouts/html_header',
+            'layouts/header',
+            'carrinho',
+            'layouts/footer',
+            'layouts/html_footer',
+        ]);
     }
 }
 
