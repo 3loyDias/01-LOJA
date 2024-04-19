@@ -21,7 +21,7 @@
 .rodape{
     background-color: #194350;
     padding: 5px;
-    margin-bottom: 10px;
+    
 }
 
 .nav-item{
@@ -33,3 +33,4 @@
 .nav-item:hover{
     color: #b0b2b7;
 }
+
