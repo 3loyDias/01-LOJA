@@ -20,3 +20,8 @@
     </div>
   </div>
 </div>
+<?php
+if (isset($_SESSION['erro'])) : ?>
+  <div class="alert alert-danger" text-center p-2:>
+    <?php $_SESSION['erro']; ?>
+<?php endif; ?>

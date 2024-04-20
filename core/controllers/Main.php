@@ -3,6 +3,7 @@
 namespace core\controllers;
 
 use core\classes\Store;
+use core\classes\Database;
 
 class Main
 {
@@ -71,8 +72,11 @@ class Main
     //================================= Criar Cliente =================================
     public function criar_cliente()
     {
-        echo '<pre>';
-        print_r($_POST);
+        // Vamos agora verificar se o utilizador existe
+        if (Store::clienteLogado()) {
+            $this->index();
+            return;
+        }
         // Alguém pode querer entrar de forma forçada
         // colocando endereço no browser, não seguindo a sequência
         // do programa
@@ -81,7 +85,46 @@ class Main
             $this->index();
             return;
         }
-        echo 'OK';
+        // Criacao de um novo cliente
+        // 1 - Verificar se a password 1 coincide com password 2
+        if ($_POST['text_senha_1'] != $_POST['text_senha_2']) 
+        {
+            // As oasswirds sao diferentes
+            $_SESSION['erro'] = "As passwords não coincidem";
+            $this->novo_cliente();
+            return;
+        }
+
+        // 2 - Verificar se o email já existe
+        // e criado o namespace da database
+        // paramaetro por exemplo :email podia ser e: PDO
+        // este metodo evita SQLInjection
+
+        $bd = new Database;
+        $parametros = [
+            ':email' => strtolower(trim($_POST['text_email']))
+        ];
+        $resultados = $bd->select(
+            "SELECT * FROM cliente where email = :email", $parametros);
+
+        if (count($resultados) > 0) {
+            die("Email já existe");
+        }
+        // Se o cliente ja existe
+        if (count($resultados) > 0) {
+            $_SESSION['erro'] = "Email já existe";
+            $this->novo_cliente();
+            return;
+        }
+        /* 3 - Registro do cliente
+        criar um purl
+        guardar os dados na tabela cliente
+        eviar um email com o purl para o cliente
+        apresentar uma mensagem indicando que deve validar o seu email
+        */
+        
+    
+            
     }
 }
 
