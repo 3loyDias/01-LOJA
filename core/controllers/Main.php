@@ -4,6 +4,7 @@ namespace core\controllers;
 
 use core\classes\Store;
 use core\classes\Database;
+use core\models\Clientes;
 
 class Main
 {
@@ -69,14 +70,33 @@ class Main
             'layouts/html_footer',
         ]);
     }
+
+    public function login()
+    {
+        //Verifica se o cliente está logado
+        if (Store::clienteLogado()) {
+            $this->index();
+            return;
+        }
+        Store::Layout([
+            'layouts/html_header',
+            'layouts/header',
+            'login',
+            'layouts/footer',
+            'layouts/html_footer',
+        ]);
+    }
     //================================= Criar Cliente =================================
     public function criar_cliente()
     {
+  
         // Vamos agora verificar se o utilizador existe
         if (Store::clienteLogado()) {
             $this->index();
             return;
         }
+
+
         // Alguém pode querer entrar de forma forçada
         // colocando endereço no browser, não seguindo a sequência
         // do programa
@@ -100,29 +120,24 @@ class Main
         // paramaetro por exemplo :email podia ser e: PDO
         // este metodo evita SQLInjection
 
-        $bd = new Database;
-        $parametros = [
-            ':email' => strtolower(trim($_POST['text_email']))
-        ];
-        $resultados = $bd->select(
-            "SELECT * FROM cliente where email = :email", $parametros);
+        
+      // VALIDAR EMAIL
 
-        if (count($resultados) > 0) {
+$bd= new Database();
+      $clientes = new Clientes();
+       $resultado =  $clientes->Validar_email();
+
+
+
+
+        if ($resultado) {
             die("Email já existe");
         }
-        // Se o cliente ja existe
-        if (count($resultados) > 0) {
-            $_SESSION['erro'] = "Email já existe";
-            $this->novo_cliente();
-            return;
-        }
-        /* 3 - Registro do cliente
-        criar um purl
-        guardar os dados na tabela cliente
-        eviar um email com o purl para o cliente
-        apresentar uma mensagem indicando que deve validar o seu email
-        */
-        
+
+
+        $clientes->registar_cliente();
+
+       
     
             
     }

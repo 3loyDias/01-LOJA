@@ -3,6 +3,8 @@
     <div class="col-12">
       <div class="login-page">
         <div class="form">
+
+        <!--    ===================  Criar Conta ===================  -->
           <form class="create-account-form" action="?a=criar_cliente" method="post">
             <h2 style="margin-top: -20px;"><strong>Criar Conta</strong></h2>
             <input type="text" name="text_email" placeholder="Email" />
@@ -13,8 +15,11 @@
             <input type="text" name="text_cidade" placeholder="Cidade" />
             <input type="text" name="text_telefone" placeholder="Telefone" />
             <button>Criar conta</button>
-            <p class="message">Ja tens conta? <a href="#">Login</a></p>
+            <p class="message">Ja tens conta? <a href="?a=login">Login</a></p>
           </form>
+       <!--    ===================  fim Criar Conta ===================  -->
+
+
         </div>
       </div>
     </div>
@@ -24,4 +29,5 @@
 if (isset($_SESSION['erro'])) : ?>
   <div class="alert alert-danger" text-center p-2:>
     <?php $_SESSION['erro']; ?>
+    <?php $_SESSION['erro']=''; ?>
 <?php endif; ?>

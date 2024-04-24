@@ -50,4 +50,21 @@ class Store
 
 
    }
+
+//***************** printData *************************************/
+public static function printData($data, $die = true)
+{
+    if (is_array($data) || is_object($data)) {
+        echo "<pre>";
+        print_r($data);
+    } else {
+        echo "<pre>";
+        echo $data;
+    }
+    if ($die) {
+        die("FIM");
+    }
+}
+
+
 }

@@ -1,4 +1,12 @@
+/* fontes */
+
+.h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
 /* app.css */
+
 .navegacao {
     background-color: #0B3948;
     Color: #d6d8de;
@@ -32,5 +40,68 @@
 
 .nav-item:hover{
     color: #b0b2b7;
+}
+
+
+/* O preloader vai sempre atualizar a pagina  */
+.preloader {
+background: #000;
+height: 100%;
+width: 100%;
+position: fixed;
+z-index: 9999;
+
+}
+
+/* A parte da loja.php */
+
+.product-row{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.product-item{
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.product-item img{
+    width: 100%;
+    height: auto;
+}
+.product-item button{
+    background-color: #029acc;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+/* Loader wrapper */
+.loader-wrapper {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: whitesmoke;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    overflow: hidden;
 }
 
