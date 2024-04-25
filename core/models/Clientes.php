@@ -93,8 +93,9 @@ class Clientes
             $_SESSION["erro"] = "Ja existe um Cliente com Esse EMAIL";
             $this->novo_cliente();
             return;
+        
     }
 
 
-    
-}
+
+}}
