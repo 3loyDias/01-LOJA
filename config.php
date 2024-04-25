@@ -2,7 +2,7 @@
 define('APP_NAME', 'Loja PHP');
 define('APP_VERSION','V1.0.0');
 
-// MYSQL - constantes para ligacao BD de dados
+// MYSQL - constantes para ligacao BD de dados 1
 define('MYSQL_SERVER', 'localhost');
 define('MYSQL_DATABASE', 'php_store');
 define('MYSQL_USER', 'root');
