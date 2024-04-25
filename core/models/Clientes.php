@@ -89,13 +89,10 @@ class Clientes
         $resultados = $bd->select("SELECT email FROM cliente WHERE email = :email", $parametros);
 
         //se o cliente ja existe
-        if (count($resultados) != 0) {
-            $_SESSION["erro"] = "Ja existe um Cliente com Esse EMAIL";
-            $this->novo_cliente();
-            return;
+        
         
     }
 
 
 
-}}
+}
