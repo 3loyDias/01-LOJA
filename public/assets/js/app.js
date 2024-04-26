@@ -1,19 +1,9 @@
-/*------------------
-        Preloader
-    --------------------*/
-    $(window).on('load', function () {
-        $(".loader").fadeOut();
-        $("#preloder").delay(200).fadeOut("slow");
+// Load the preloader
+window.onload = function() {
+    let preloader = document.getElementById('preloader');
+    preloader.classList.add('hide-preloader');
+    setTimeout(function() {
+        preloader.classList.add('preloader-hidden');
+    },950);
 
-        /*------------------
-            Gallery filter
-        --------------------*/
-        $('.featured__controls li').on('click', function () {
-            $('.featured__controls li').removeClass('active');
-            $(this).addClass('active');
-        });
-        if ($('.featured__filter').length > 0) {
-            var containerEl = document.querySelector('.featured__filter');
-            var mixer = mixitup(containerEl);
-        }
-    });
+}

@@ -33,7 +33,7 @@ class Clientes
         ];
 
         $resultados = $bd->select(
-            "SELECT * FROM cliente where email = :email", $parametros);
+            "SELECT * FROM clientes where email = :email", $parametros);
 
             if (count($resultados) > 0) {
                 return true;
@@ -63,7 +63,7 @@ class Clientes
            ':ativo' => 0,
        ];
        $bd->insert(
-           "INSERT INTO cliente VALUES (0, :email, :senha, :nome_completo, :morada, :telefone, :cidade, :purl, :ativo, NOW(), NOW(), NULL)", $parametros);
+           "INSERT INTO clientes VALUES (0, :email, :senha, :nome_completo, :morada, :telefone, :cidade, :purl, :ativo, NOW(), NOW(), NULL)", $parametros);
 
 
        /* 3 - Registro do cliente
@@ -89,12 +89,10 @@ class Clientes
         $resultados = $bd->select("SELECT email FROM cliente WHERE email = :email", $parametros);
 
         //se o cliente ja existe
-        if (count($resultados) != 0) {
-            $_SESSION["erro"] = "Ja existe um Cliente com Esse EMAIL";
-            $this->novo_cliente();
-            return;
+        
+        
     }
 
 
-    
+
 }

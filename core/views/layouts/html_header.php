@@ -14,4 +14,8 @@
     
 </head>
 
+<div id="preloader">
+    <img src="assets/images/preloader.gif" alt="preloader">
+</div>
+
 <body>
