@@ -18,6 +18,4 @@
     <img src="assets/images/preloader.gif" alt="preloader">
 </div>
 
-
-
 <body>
