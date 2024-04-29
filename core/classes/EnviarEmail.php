@@ -8,7 +8,7 @@ use PHPMailer\PHPMailer\Exception;
 
 class EnviarEmail
 {
-    public function enviar_email_confirmacao_novo_cliente($email_cliente)
+    public function enviar_email_confirmacao_novo_cliente($email_cliente, $purl)
     {
         //Create an instance; passing `true` enables exceptions
         $mail = new PHPMailer(true);
@@ -39,6 +39,14 @@ class EnviarEmail
             $mail->Subject = APP_NAME . ' Confirmação de conta';
             // Corpo do texto do nosso email e mensagem
             $html = '<p>Seja bem vindo á nossa loja ' . APP_NAME . ' </p>';
+            $html .= '<p>Para poder acessar a sua conta, por favor clique no link abaixo para confirmar o seu email</p>';
+            $html .= '<p><a href=">Confirmar email</a></p>';
+            $mail->Body = $html;
+
+
+
+
+
             $mail->Body = 'Testando o Envio - Teste <strong>BOLD!!!</strong>';
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
